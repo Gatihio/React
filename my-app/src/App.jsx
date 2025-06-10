@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Simulador de Turnos</h1>
       <AppointmentForm
         nombre={nombre}
@@ -37,7 +37,7 @@ function App() {
         setHora={setHora}
         tomarTurno={tomarTurno}
       />
-      <h2>Turnos tomados</h2>
+      <h2>Turnos registrados</h2>
       <AppointmentList turnos={turnos} cancelarTurno={cancelarTurno} />
     </div>
   );
