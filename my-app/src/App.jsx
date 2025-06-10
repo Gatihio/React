@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="app-container">
       <img
-        src="/imagen.png"
+        src="/goku.png"
         alt="Logo"
         style={{
           width: "90px",
