@@ -71,6 +71,18 @@ function App() {
 
   return (
     <div className="app-container">
+      <img
+        src="/imagen.png"
+        alt="Logo"
+        style={{
+          width: "90px",
+          height: "90px",
+          objectFit: "contain",
+          marginBottom: "1em",
+          borderRadius: "16px",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.15)"
+        }}
+      />
       <h1>Simulador de Turnos</h1>
       <AppointmentForm
         nombre={nombre}
