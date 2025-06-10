@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AppointmentForm from "./components/AppointmentForm";
 import AppointmentList from "./components/AppointmentList";
-import './App.css'; // For basic styling
 
 function App() {
   const [turnos, setTurnos] = useState([]);
@@ -17,6 +16,8 @@ function App() {
     return inputDate >= today;
   };
 
+  const soloLetrasYEspacios = (str) => /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(str);
+
   const tomarTurno = (e) => {
     e.preventDefault();
     setError("");
@@ -26,18 +27,31 @@ function App() {
       return;
     }
     if (nombre.trim().length < 3) {
-      setError("El nombre debe tener al menos 3 caracteres.");
+      setError("El nombre debe tener al menos 3 letras.");
+      return;
+    }
+    if (!soloLetrasYEspacios(nombre.trim())) {
+      setError("El nombre solo puede contener letras y espacios.");
       return;
     }
     if (!isTodayOrFuture(fecha)) {
       setError("La fecha debe ser hoy o una fecha futura.");
       return;
     }
-    const existe = turnos.some(
+    const existeHorario = turnos.some(
       (t) => t.fecha === fecha && t.hora === hora
     );
-    if (existe) {
+    if (existeHorario) {
       setError("Ya existe un turno registrado en ese horario.");
+      return;
+    }
+    const nombreNormalizado = nombre.trim().toLowerCase().replace(/\s+/g, " ");
+    const existeNombre = turnos.some(
+      (t) =>
+        t.nombre.trim().toLowerCase().replace(/\s+/g, " ") === nombreNormalizado
+    );
+    if (existeNombre) {
+      setError("Ese nombre ya tiene un turno registrado.");
       return;
     }
 
