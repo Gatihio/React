@@ -8,17 +8,47 @@ function App() {
   const [nombre, setNombre] = useState("");
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
+  const [error, setError] = useState("");
+
+  const isTodayOrFuture = (dateStr) => {
+    const today = new Date();
+    const inputDate = new Date(dateStr + "T00:00:00");
+    today.setHours(0,0,0,0);
+    return inputDate >= today;
+  };
 
   const tomarTurno = (e) => {
     e.preventDefault();
-    if (!nombre || !fecha || !hora) return;
+    setError("");
+
+    if (!nombre || !fecha || !hora) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
+    if (nombre.trim().length < 3) {
+      setError("El nombre debe tener al menos 3 caracteres.");
+      return;
+    }
+    if (!isTodayOrFuture(fecha)) {
+      setError("La fecha debe ser hoy o una fecha futura.");
+      return;
+    }
+    const existe = turnos.some(
+      (t) => t.fecha === fecha && t.hora === hora
+    );
+    if (existe) {
+      setError("Ya existe un turno registrado en ese horario.");
+      return;
+    }
+
     setTurnos([
       ...turnos,
-      { id: Date.now(), nombre, fecha, hora }
+      { id: Date.now(), nombre: nombre.trim(), fecha, hora }
     ]);
     setNombre("");
     setFecha("");
     setHora("");
+    setError("");
   };
 
   const cancelarTurno = (id) => {
@@ -37,6 +67,18 @@ function App() {
         setHora={setHora}
         tomarTurno={tomarTurno}
       />
+      {error && (
+        <div style={{
+          color: "#e57373",
+          background: "#23232b",
+          borderRadius: "8px",
+          padding: "0.7em",
+          margin: "1em 0",
+          fontFamily: "'Playfair Display', serif"
+        }}>
+          {error}
+        </div>
+      )}
       <h2>Turnos registrados</h2>
       <AppointmentList turnos={turnos} cancelarTurno={cancelarTurno} />
     </div>
