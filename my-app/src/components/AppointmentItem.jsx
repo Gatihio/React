@@ -1,5 +1,8 @@
 import React from "react";
 
+// Componente que representa un turno individual en la lista
+// Muestra los datos del turno y el botón para cancelarlo
+
 export default function AppointmentItem({ turno, cancelarTurno }) {
   return (
     <li className="turno-item">

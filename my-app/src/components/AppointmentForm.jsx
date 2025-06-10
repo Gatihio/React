@@ -1,5 +1,8 @@
 import React from "react";
 
+// Componente de formulario para tomar un turno
+// Recibe los estados y funciones para manejar los campos y el envío
+
 export default function AppointmentForm({ nombre, fecha, hora, setNombre, setFecha, setHora, tomarTurno }) {
   return (
     <form onSubmit={tomarTurno}>
