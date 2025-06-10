@@ -121,17 +121,3 @@ ul {
   font-style: italic;
   margin-top: 1em;
 }
-
-/* Botones de calendario y reloj en blanco */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-/* Para Firefox */
-input[type="date"],
-input[type="time"] {
-  color-scheme: dark;
-}
