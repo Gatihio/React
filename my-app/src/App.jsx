@@ -75,8 +75,8 @@ function App() {
         src="/goku.png"
         alt="Logo"
         style={{
-          width: "90px",
-          height: "90px",
+          width: "160px",      // Cambia el tamaño aquí
+          height: "160px",     // Cambia el tamaño aquí
           objectFit: "contain",
           marginBottom: "1em",
           borderRadius: "16px",
