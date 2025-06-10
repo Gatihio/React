@@ -1,42 +1,80 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
   text-align: center;
+  color: #333;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.appointment-form, .appointment-list {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #eee;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-group {
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.read-the-docs {
-  color: #888;
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.appointment-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-item button {
+  background-color: #dc3545;
+}
+
+.appointment-item button:hover {
+  background-color: #c82333;
 }

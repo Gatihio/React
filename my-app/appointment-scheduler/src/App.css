@@ -1,0 +1,44 @@
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.appointment-form {
+  margin-bottom: 2rem;
+}
+
+.appointment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.appointment-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #ff1a1a;
+}
